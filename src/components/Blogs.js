@@ -1,31 +1,31 @@
-import React, {useState, useEffect} from "react";
-import {Table} from "reactstrap";
+import React, { useState, useEffect } from "react";
+import { Table } from "reactstrap";
 
-const DisplayPosts = ({post, index}) => {
+const DisplayPosts = ({ post, index }) => {
     return (
         <tr>
-            <th>{index+1}</th>
+            <th>{index + 1}</th>
             <th>{post.title}</th>
         </tr>
     )
 }
 
-const Blogs = ({userId}) => {
+const Blogs = ({ userId }) => {
 
-    const URL = `https://jsonplaceholder.typicode.com/posts?userId=${userId+1}`;
+    const URL = `https://jsonplaceholder.typicode.com/posts?userId=${userId + 1}`;
     const [post, setPosts] = useState([]);
 
-    useEffect( () => {
-        if(!post.length) {
+    useEffect(() => {
+        if (!post.length) {
             fetchPosts(userId);
         }
     });
 
-    let fetchPosts = async() => {
+    let fetchPosts = async () => {
         const post = await fetch(URL).then(res => res.json());
         setPosts(post);
     }
-    
+
     return (
         <Table>
             <thead>
@@ -34,9 +34,34 @@ const Blogs = ({userId}) => {
                     <th>Title</th>
                 </tr>
             </thead>
-        {post.map((p,i) => <DisplayPosts post={p} index={i}/>)}
+            {post.map((p, i) => <DisplayPosts post={p} index={i} />)}
         </Table>
     )
 }
 
-export default Blogs;
+const DisplayBlogs = () => {
+    const URL = "https://jsonplaceholder.typicode.com/users";
+
+    const [post, setPosts] = useState([]);
+
+    useEffect(() => {
+        if (!post.length) {
+            fetchPosts();
+        }
+    });
+
+    let fetchPosts = async () => {
+        const post = await fetch(URL).then(res => res.json());
+        setPosts(post);
+    }
+
+    return (
+        <>
+            {post.map((p, i) => <Blogs userId={p.id} />)}
+        </>
+    )
+
+
+}
+
+export default DisplayBlogs;
