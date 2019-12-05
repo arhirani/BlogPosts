@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "reactstrap";
 import { Router, Route, browserHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { Blogs } from "./Blogs";
 
 
@@ -47,6 +47,7 @@ const DisplayUsers = () => {
             </thead>
             <tbody>
                 {users.map((l, i) => <UserIndex user={l} index={i} />)}
+                
             </tbody>
         </Table>
     )

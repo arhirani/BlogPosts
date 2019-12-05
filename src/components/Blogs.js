@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { Table } from "reactstrap";
 
 const DisplayPosts = ({ post, index }) => {
+    const url = `/blogs/${post.userId}/${post.id}`;
+    console.log("post", post);
     return (
         <tr>
             <th>{index + 1}</th>
-            <th>{post.title}</th>
+            <th><Link to={url}>{post.title}</Link></th>
         </tr>
     )
 }
 
 const Blogs = ({ userId }) => {
 
-    const URL = `https://jsonplaceholder.typicode.com/posts?userId=${userId + 1}`;
+    const URL = `https://jsonplaceholder.typicode.com/posts?userId=${userId}`;
     const [post, setPosts] = useState([]);
 
     useEffect(() => {
@@ -39,29 +42,15 @@ const Blogs = ({ userId }) => {
     )
 }
 
-const DisplayBlogs = () => {
-    const URL = "https://jsonplaceholder.typicode.com/users";
+const DisplayBlogs = (props) => {
 
-    const [post, setPosts] = useState([]);
-
-    useEffect(() => {
-        if (!post.length) {
-            fetchPosts();
-        }
-    });
-
-    let fetchPosts = async () => {
-        const post = await fetch(URL).then(res => res.json());
-        setPosts(post);
-    }
+    const id = parseInt(window.location.href.split('/')[5]);
 
     return (
         <>
-            {post.map((p, i) => <Blogs userId={p.id} />)}
+            {<Blogs userId={id} />}
         </>
     )
-
-
 }
 
 export default DisplayBlogs;

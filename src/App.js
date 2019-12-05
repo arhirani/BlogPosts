@@ -23,7 +23,7 @@ const App = () => {
                 exact={route.exact}
                 name={route.name}
                 render={props => (
-                  <DisplayBlogs {...props} />
+                  <route.component {...props} />
                 )} />
             ) : (null);
           })}
