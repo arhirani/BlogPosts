@@ -4,7 +4,7 @@ import { Table } from "reactstrap";
 
 const DisplayPosts = ({ post, index }) => {
     const url = `/blogs/${post.userId}/${post.id}`;
-    console.log("post", post);
+
     return (
         <tr>
             <th>{index + 1}</th>

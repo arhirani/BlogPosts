@@ -19,7 +19,6 @@ const UserIndex = ({ user, index }) => {
             <th scope="row">{index + 1}</th>
             <td>{user.name}</td>
             <td>{user.company.name}</td>
-            {/* <td><a href={url} target="_blank">{user.name}'s Blogs</a></td> */}
             <td><Link to={url}>{user.name}'s Blogs</Link></td>
         </tr>
     )
