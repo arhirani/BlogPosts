@@ -1,9 +1,7 @@
 import React, { useState, Component, Suspense } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-// import { renderRoutes } from 'react-router-config';
 import './App.scss';
 import DisplayUsers from "./components/Users";
-import DisplayBlogs from "./components/Blogs";
 import routes from './routes';
 
 const App = () => {
@@ -27,11 +25,9 @@ const App = () => {
                 )} />
             ) : (null);
           })}
-
         </Switch>
       </Suspense>
     </HashRouter>
-    // <DisplayBlogs />
   )
 }
 
