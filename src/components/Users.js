@@ -34,8 +34,14 @@ const DisplayUsers = () => {
         setUsers(users);
     }
 
+    // if (!users.length) {
+    //     console.log("called");
+    //     const usersm = fetch("https://jsonplaceholder.typicode.com/users").then(result => result.json());
+    //     setUsers(usersm);
+    // }
+
     return (
-        <Table dark>
+        < Table dark >
             <thead>
                 <tr>
                     <th>#</th>
@@ -45,10 +51,10 @@ const DisplayUsers = () => {
                 </tr>
             </thead>
             <tbody>
-                {users.map((l, i) => <UserIndex user={l} index={i} />)}
-                
+                {users && users.length ? users.map((l, i) => <UserIndex user={l} index={i} />) : null}
+
             </tbody>
-        </Table>
+        </Table >
     )
 }
 export default DisplayUsers;
