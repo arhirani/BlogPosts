@@ -13,5 +13,5 @@ Run 'npm start'.
 
 ## Features
 
-*Create different routes for bloggers and their blogs
-*Blogs of a particular author get displayed when the author's name is clicked.
+* Create different routes for bloggers and their blogs
+* Blogs of a particular author get displayed when the author's name is clicked.
