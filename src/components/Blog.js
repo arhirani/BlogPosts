@@ -7,6 +7,7 @@ const DisplayComments = ({ comment, index }) => {
     <>
       <Row className="ml-2">
         Comment {index + 1} : {comment.body}
+        Next Index : {index + 2}
       </Row>
     </>
   );
@@ -14,7 +15,7 @@ const DisplayComments = ({ comment, index }) => {
 const Blog = ({ title, body }) => {
   return (
     <>
-      <Row className="ml-2">Title of the Blog: {title}</Row>
+      <Row className="ml-2">Title: {title}</Row>
       <Row className="ml-2">Body: {body}</Row>
     </>
   );
@@ -62,3 +63,7 @@ const DisplayBlog = () => {
 };
 
 export default DisplayBlog;
+
+// ------------------------------------------------------------------------------------
+
+// master   ---> deployed
